@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="./index.js" defer></script>
+    <title>Keep</title>
+</head>
+<body>
+    <div class="main">
+
+
+        <div class="header">
+            <img src="./imagens/logoNasa.png" class="imgLogo" style="width: 150px">
+            <form class="header-center">
+                <input type="text" class="input-header" id="input-NameLista" placeholder="Titulo da nova nota" required>
+                <button class="btn-Newlista-header" id="btn-Newlista-header">Criar</button>
+            </form>
+            <img src="./imagens/iconeUser.png" class="imgLogo" style="width: 90px">
+        </div>
+
+
+        <div class="containerGeral" id="conteinerList">
+            
+            <div class="list">
+                <h4 class="titleCard">Exemplo Nota</h4>
+                <textarea class="cardTxtArea" placeholder="digite..."></textarea>
+            </div>
+
+            <div class="list">
+                <h4 class="titleCard">Exemplo Lista</h4>
+                    <form id="list-form">
+                        <input type="text" id="item-input" placeholder="Adicione um novo item..." required>
+                        <button id="addcheckbox" class="btn-Newlista">Adicionar</button>
+                    </form>
+                    <ul id="item-list">
+                        <li><input type="checkbox">Tarefa 1</li>
+                        <li><input type="checkbox">Tarefa 2</li>
+                        <li><input type="checkbox">Tarefa 3</li>
+                    </ul>
+
+            </div>
+
+        </div>
+    
+    </div>
+
+    <div class="divBotton">
+        <button class="btn-Newlista" id="btn-AddBotton">+</button>
+        <div class="extra-buttons" id="extraButtons"></div>
+    </div>
+</body>
+</html>
