@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded',function(){
 
 
     const form = document.getElementById('list-form')
-    const item_list = document.getElementById('item-list')
+    
     const item_input = document.getElementById('item-input')
     const btn_AddBoxLista = document.getElementById('addcheckbox')
     
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded',function(){
             
         newNota.innerHTML=`
             <h4 class="titleCard">${name}</h4>
-            <textarea class="cardTxtArea"></textarea>
+            <textarea class="cardTxtArea" placeholder="digite..."></textarea>
         `;
         containerList.appendChild(newNota)
     }
@@ -46,8 +46,8 @@ document.addEventListener('DOMContentLoaded',function(){
         newLista.innerHTML=`
             <h4 class="titleCard">${name}</h4>
             <form class='list-form' data-list-id="${listId}">
-                <input type="text" id="item-input" placeholder="Adicione um novo item..." required>
-                <button type="submit" id="addcheckbox" class="btn-Newlista">Adicionar</button>
+                <input type="text" id="item-input" class="item-input" placeholder="novo item..." style="width: 140px" required>
+                <button type="submit" id="addcheckbox" class="btn-Newlista" style="margin-left: 5px">Add</button>
             </form>
             <ul  id="${listId}"></ul>
         `;
