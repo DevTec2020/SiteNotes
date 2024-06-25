@@ -1,0 +1,147 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #00121E;
+    font-family: Arial, sans-serif;
+}
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/****** Css Header *****/
+.header {
+    width: 100%;
+    margin-left: 20px;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-bottom: 1px solid #ddd;
+    
+}
+
+.input-header {
+    width: 500px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;   
+}
+
+.btn-Newlista-header {
+    margin-left: 10px;
+    border-radius: 10px;
+    height: 30px;
+    background-color: #3DE6AF;
+    color: #ffffff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+/****** *****/
+
+.containerGeral {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 65px auto;
+    padding: 50px;
+}    
+
+.list {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    width: 200px;    
+    box-shadow: 0 0 10px black;
+        
+        
+}
+
+.titleCard{
+    margin: 10px;
+    text-transform: capitalize;
+}
+
+
+
+ul{
+    list-style-type: none;
+    padding: 0;
+}
+li{
+    display: flex;
+    align-items: baseline;
+}
+textarea{
+    outline: none;
+}
+
+.cardTxtArea{
+    border: none;
+    height: 40vh;
+    width: 21vh;
+   
+}
+
+.list-form{
+    display: flex;
+    
+}
+
+
+.btn-Newcard,.btn-Newlista{
+    background-color: #3DE6AF;
+    color: #ffffff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.btn-Newlista#btn-AddBotton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 20px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+
+}
+
+.btn-ExtraNota{
+    height: 30px;
+    width: 60px;
+    background-color: #3DE6AF;
+    color: #ffffff;
+    position: fixed;
+    bottom: 75px;
+    right: 20px;
+    font-size: 15px;
+    border-radius: 10px;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+
+}
+.btn-ExtraLista{
+    height: 30px;
+    width: 60px;
+    background-color: #3DE6AF;
+    color: #ffffff;
+    position: fixed;
+    bottom: 110px;
+    right: 20px;
+    font-size: 15px;
+    border-radius: 10px;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+
+}
+
