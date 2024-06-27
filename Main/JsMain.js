@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded',function(){
     const input_Header = document.getElementById('input-NameLista')
     const btn_AddHeader = document.getElementById('btn-Newlista-header')
+    const btn_SairHeader = document.getElementById('btn-logoff')
+
     const containerList = document.getElementById('conteinerList')
 
 
@@ -24,6 +26,17 @@ document.addEventListener('DOMContentLoaded',function(){
             input_Header.value='';
         }
     })
+
+    //Logoff
+    btn_SairHeader.addEventListener('click',function(){
+        const sair = confirm('Realmente deseja sair ?')
+        if(sair){
+            window.location.href='../index.html';
+        }
+        
+    })
+    
+
 
     //Cria Nota
     function createNota(name){
@@ -62,7 +75,7 @@ document.addEventListener('DOMContentLoaded',function(){
             e.preventDefault();
             const newItemText = newForm.querySelector('#item-input').value.trim();
                 if (newItemText) {
-                    addItemToDOM(listId, newItemText);
+                    addItemToList(listId, newItemText);
                     newForm.querySelector('#item-input').value = '';
                 }
         });
@@ -70,15 +83,29 @@ document.addEventListener('DOMContentLoaded',function(){
 
 
 
-    //Adiciona Item no DOM
-    function addItemToDOM(listId, text) {
-        const itemList = document.getElementById(listId);
+    //Adiciona Item na Lista
+    function addItemToList(listId, text) {
+        const idDaLista = document.getElementById(listId);
         const li = document.createElement('li')
         const checkbox = document.createElement('input')
         checkbox.type='checkbox';
+
+        checkbox.addEventListener('change',function(){
+            if (this.checked){
+                li.classList.add('completada');
+                idDaLista.appendChild(li); // Coloca como concluida e joga para o fim da lista
+            }
+            else{
+                li.classList.remove('completada');
+                idDaLista.insertBefore(li, idDaLista.firstChild); //Joga para o inicio ao desmarcar
+            }
+        })
+
+
+
         li.appendChild(checkbox)
         li.appendChild(document.createTextNode(text))
-        itemList.appendChild(li)
+        idDaLista.appendChild(li)
     }
 
     // Adiciona o event listener ao formulário de exemplo existente
@@ -86,7 +113,7 @@ document.addEventListener('DOMContentLoaded',function(){
         e.preventDefault();
         const newItemText = item_input.value.trim();
         if (newItemText) {
-            addItemToDOM('item-list', newItemText);
+            addItemToList('item-list', newItemText);
             item_input.value = '';
         }
     });

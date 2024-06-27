@@ -93,7 +93,10 @@ textarea{
     
 }
 
-
+.completada{
+    text-decoration: line-through;
+    color: grey;
+}
 .btn-Newcard,.btn-Newlista{
     background-color: #3DE6AF;
     color: #ffffff;
