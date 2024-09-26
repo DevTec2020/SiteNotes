@@ -9,13 +9,13 @@ document.addEventListener('DOMContentLoaded',function(){
     const form = document.getElementById('list-form')
     
     const item_input = document.getElementById('item-input')
-    const btn_AddBoxLista = document.getElementById('addcheckbox')
+    //const btn_AddBoxLista = document.getElementById('addcheckbox')
     
     
 
     const btn_AddBotton = document.getElementById('btn-AddBotton')
-    const div_extraButtons = document.getElementById('extraButtons')
-    const btn_extraNota = document.getElementById('btn-ExtraNota')
+    const btn_AddNota_Botton = document.getElementById('btn-ExtraNota')
+    const btn_AddLista_Botton = document.getElementById('btn-ExtraLista')
 
 
     //Add Nota usando o input do header
@@ -119,10 +119,15 @@ document.addEventListener('DOMContentLoaded',function(){
     });
     
 
+    function extraButtons_Toggle(){
+        document.getElementById('extraButtons').classList.toggle('hidden')
+    }
+
     //Button footer
     btn_AddBotton.addEventListener('click', function() {
-
-            
+        extraButtons_Toggle();
+           
+        /*
         const btn_AddNota_Botton = document.createElement('button');
         btn_AddNota_Botton.textContent = 'Nota';
         btn_AddNota_Botton.className = 'btn-ExtraNota';
@@ -137,38 +142,34 @@ document.addEventListener('DOMContentLoaded',function(){
         div_extraButtons.appendChild(btn_AddNota_Botton);
         div_extraButtons.appendChild(btn_AddLista_Botton);
 
-
-        btn_AddNota_Botton.addEventListener('click',function(){
-            const inputPrompt=prompt('Digite o nome da Nota')
-    
-            if(inputPrompt){
-                createNota(inputPrompt)
-                div_extraButtons.removeChild(btn_AddNota_Botton)
-                div_extraButtons.removeChild(btn_AddLista_Botton)
-                
-            }
-            else{
-                alert ('Digite o nome da Nota')
-            }
-        })
-
-        btn_AddLista_Botton.addEventListener('click',function(){
-            const inputPrompt=prompt('Digite o nome da Lista')
-    
-            if(inputPrompt){
-                createList(inputPrompt)
-                div_extraButtons.removeChild(btn_AddNota_Botton)
-                div_extraButtons.removeChild(btn_AddLista_Botton)
-                
-            }
-            else{
-                alert ('Digite o nome da Lista')
-            }
-        })
-
-        
-
+        */
     });
+
+    btn_AddNota_Botton.addEventListener('click',function(){
+        const inputPrompt=prompt('Digite o nome da Nota')
+
+        if(inputPrompt){
+            createNota(inputPrompt)
+            extraButtons_Toggle();
+        }
+        else{
+            alert ('Digite o nome da Nota')
+            extraButtons_Toggle();
+        }
+    })
+
+    btn_AddLista_Botton.addEventListener('click',function(){
+        const inputPrompt=prompt('Digite o nome da Lista')
+
+        if(inputPrompt){
+            createList(inputPrompt)
+            extraButtons_Toggle();
+        }
+        else{
+            alert ('Digite o nome da Lista')
+            extraButtons_Toggle();
+        }
+    })
 
 
 })

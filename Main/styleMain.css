@@ -105,6 +105,10 @@ textarea{
     z-index: 9;
 }
 
+.hidden{
+    display: none;
+}
+
 .btn-Newlista#btn-AddBotton {
     position: fixed;
     bottom: 20px;
