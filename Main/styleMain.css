@@ -65,7 +65,18 @@ body{
     text-transform: capitalize;
 }
 
-
+.div-btn-excluir{
+    display: flex;
+    justify-content: end;
+    margin-top: 10px;
+}
+#btn-excluir{
+    display: flex;
+    padding: 5px;
+    background-color: #3DE6AF;
+    border: none;
+    border-radius: 30%;
+}
 
 ul{
     list-style-type: none;

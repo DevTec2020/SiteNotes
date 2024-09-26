@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded',function(){
     const btn_AddBotton = document.getElementById('btn-AddBotton')
     const btn_AddNota_Botton = document.getElementById('btn-ExtraNota')
     const btn_AddLista_Botton = document.getElementById('btn-ExtraLista')
+    const btn_lixo = document.getElementById('btn-excluir')
 
 
     //Add Nota usando o input do header
@@ -42,10 +43,15 @@ document.addEventListener('DOMContentLoaded',function(){
     function createNota(name){
         const newNota=document.createElement('div')
         newNota.className='list'
+        newNota.setAttribute('data-name', name)
+        
             
         newNota.innerHTML=`
             <h4 class="titleCard">${name}</h4>
             <textarea class="cardTxtArea" placeholder="digite..."></textarea>
+            <div class="div-btn-excluir" >
+                <button id="btn-excluir" class="btn-excluir"><i class="fa-solid fa-trash "></i></button>
+            </div>            
         `;
         containerList.appendChild(newNota)
     }
@@ -55,6 +61,7 @@ document.addEventListener('DOMContentLoaded',function(){
         const listId = `list-${Date.now()}`;
         const newLista = document.createElement('div')
         newLista.className='list';
+        newLista.setAttribute('data-name', name)
             
         newLista.innerHTML=`
             <h4 class="titleCard">${name}</h4>
@@ -63,10 +70,15 @@ document.addEventListener('DOMContentLoaded',function(){
                 <button type="submit" id="addcheckbox" class="btn-Newlista" style="margin-left: 5px">Add</button>
             </form>
             <ul  id="${listId}"></ul>
+            <div class="div-btn-excluir" >
+                <button id="btn-excluir" class="btn-excluir"><i class="fa-solid fa-trash "></i></button>
+            </div>
         `;
 
 
         containerList.appendChild(newLista)
+
+
 
 
         // Adiciona o event listener ao novo formulário criado
@@ -109,8 +121,8 @@ document.addEventListener('DOMContentLoaded',function(){
     }
 
     // Adiciona o event listener ao formulário de exemplo existente
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
+    form.addEventListener('submit', function(ev) {
+        ev.preventDefault();
         const newItemText = item_input.value.trim();
         if (newItemText) {
             addItemToList('item-list', newItemText);
@@ -119,31 +131,32 @@ document.addEventListener('DOMContentLoaded',function(){
     });
     
 
-    function extraButtons_Toggle(){
-        document.getElementById('extraButtons').classList.toggle('hidden')
-    }
+    //Botão excluir
+    containerList.addEventListener('click', function(ev){
+        if (ev.target.classList.contains('btn-excluir') || ev.target.closest('.btn-excluir')) {
+            // Encontra a div pai mais próxima com a classe 'list'
+            const notaDiv = ev.target.closest('.list');
+            const confirma = confirm(`confirma a exclusão da "${notaDiv.getAttribute('data-name')}" ?`)
+            
+            // Remove a div pai com a nota ou lista correspondente
+            if (confirma && notaDiv) {
+                notaDiv.remove();
+                console.log(`Nota ou lista com data-name "${notaDiv.getAttribute('data-name')}" foi removida.`);
+            }
+        }
+    })
+
+
+
 
     //Button footer
     btn_AddBotton.addEventListener('click', function() {
         extraButtons_Toggle();
-           
-        /*
-        const btn_AddNota_Botton = document.createElement('button');
-        btn_AddNota_Botton.textContent = 'Nota';
-        btn_AddNota_Botton.className = 'btn-ExtraNota';
-        btn_AddNota_Botton.id='btn-ExtraNota';
-
-        
-        const btn_AddLista_Botton = document.createElement('button');
-        btn_AddLista_Botton.textContent = 'Lista';
-        btn_AddLista_Botton.className = 'btn-ExtraLista';
-        btn_AddLista_Botton.id='btn-ExtraLista'
-
-        div_extraButtons.appendChild(btn_AddNota_Botton);
-        div_extraButtons.appendChild(btn_AddLista_Botton);
-
-        */
     });
+
+    function extraButtons_Toggle(){
+        document.getElementById('extraButtons').classList.toggle('hidden')
+    }
 
     btn_AddNota_Botton.addEventListener('click',function(){
         const inputPrompt=prompt('Digite o nome da Nota')
@@ -158,6 +171,7 @@ document.addEventListener('DOMContentLoaded',function(){
         }
     })
 
+    
     btn_AddLista_Botton.addEventListener('click',function(){
         const inputPrompt=prompt('Digite o nome da Lista')
 

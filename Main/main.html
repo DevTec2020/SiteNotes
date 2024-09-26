@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styleMain.css">
     <script src="JsMain.js" defer></script>
+    <!--Icones-->
+    <script src="https://kit.fontawesome.com/a14fb836f8.js" crossorigin="anonymous"></script>
     <title>SiteNote</title>
 </head>
 <body>
@@ -22,18 +24,24 @@
 
         <div class="containerGeral" id="conteinerList">
             
-            <div class="list">
+            <div class="list" data-name="Exemplo-Nota">
                 <h4 class="titleCard">Exemplo Nota</h4>
                 <textarea class="cardTxtArea" placeholder="digite..."></textarea>
+                <div class="div-btn-excluir" >
+                    <button id="btn-excluir" class="btn-excluir"><i class="fa-solid fa-trash "></i></button>
+                </div>
             </div>
 
-            <div class="list">
+            <div class="list" data-name="Exemplo-Lista">
                 <h4 class="titleCard">Exemplo Lista</h4>
                     <form class="list-form" id="list-form">
                         <input type="text" id="item-input" placeholder="novo item..." style="width: 140px" required>
                         <button id="addcheckbox" class="btn-Newlista" style="margin-left: 5px">Add</button>
                     </form>
                     <ul id="item-list"></ul>
+                    <div class="div-btn-excluir" >
+                        <button id="btn-excluir" class="btn-excluir"><i class="fa-solid fa-trash "></i></button>
+                    </div>                    
 
             </div>
 
