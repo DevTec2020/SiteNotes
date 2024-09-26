@@ -13,12 +13,11 @@ body{
 /****** Css Header *****/
 .header {
     width: 100%;
-    margin-left: 20px;
     position: fixed;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 10px;
+    justify-content: space-around;
+    padding: 5px;
     background-color: rgba(255, 255, 255, 0.9);
     border-bottom: 1px solid #ddd;
     
@@ -104,6 +103,7 @@ textarea{
     padding: 5px 10px;
     cursor: pointer;
     border-radius: 3px;
+    z-index: 9;
 }
 
 .btn-Newlista#btn-AddBotton {
@@ -148,3 +148,17 @@ textarea{
 
 }
 
+@media (max-width: 740px ) {
+    .header-center {
+        visibility: hidden;
+    }
+
+    .header {
+        width: 100%;
+        padding: 10px;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-bottom: 1px solid #ddd;
+        
+    }
+
+}
