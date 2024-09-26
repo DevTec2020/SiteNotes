@@ -69,3 +69,13 @@ button {
 .button-cadastro {
     background-color: #FF6F61;
 }
+
+@media (max-width: 400px ) {
+    button {
+        border: none;
+        width: 120px;
+        height: 30px;
+        margin: 5px;
+        color: #ffffff;
+    }
+}
